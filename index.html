@@ -7,93 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS with Anisul Islam</title>
 </head>
+<style>
+    /* input:hover{
+        background-color: rgb(0, 0, 0);
+        padding: 20px;
+        color: rgb(255, 255, 255);
+    } */
+
+    input:focus {
+        background-color: rgb(0, 0, 0);
+        padding: 20px;
+        color: rgb(255, 255, 255);
+    }
+
+    p::after {
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.";
+        color: red;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+
+    p::first-letter {
+        font-size: 30px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+    }
+
+    p::first-line {
+        font-size: 30px;
+        color: rgb(211, 0, 0);
+        font-weight: bold;
+    }
+</style>
 
 <body>
-    <div class="blockelemtn">
-        <h1 class="blockelement">this is block element</h1>
-        <h1 class="blockelementconvertintoinlineelement ">this is block element</h1>
-        <article class="indent">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam unde voluptate cum
-            dicta
-            saepe illo quos
-            commodi pariatur iure consequatur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-            quibusdam
-            illum laboriosam fugit voluptate natus repellat quidem adipisci. Quidem, adipisci. Temporibus officia natus,
-            magnam sit enim voluptas sunt, expedita cum fuga laborum iusto consectetur distinctio molestias dolores.
-            Quaerat, fuga amet officia atque sequi corporis minima a iste magnam eveniet distinctio modi optio dolore!
-            Eius
-            consectetur amet iure voluptates distinctio, magnam voluptatibus nam impedit quis saepe exercitationem
-            aliquid
-            animi earum nulla iusto asperiores cumque et laudantium officiis. Necessitatibus cumque molestiae, optio
-            enim
-            facilis voluptatum quaerat rerum magnam expedita, voluptatem accusamus corporis inventore delectus iure
-            labore
-            nam. At quos tempora cupiditate esse.
-
-            <article>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam unde voluptate cum
-                dicta
-                saepe illo quos
-                commodi pariatur iure consequatur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-                quibusdam
-                illum laboriosam fugit voluptate natus repellat quidem adipisci. Quidem, adipisci. Temporibus officia natus,
-                magnam sit enim voluptas sunt, expedita cum fuga laborum iusto consectetur distinctio molestias dolores.
-                Quaerat, fuga amet officia atque sequi corporis minima a iste magnam eveniet distinctio modi optio dolore!
-                Eius
-                consectetur amet iure voluptates distinctio, magnam voluptatibus nam impedit quis saepe exercitationem
-                aliquid
-                animi earum nulla iusto asperiores cumque et laudantium officiis. Necessitatibus cumque molestiae, optio
-                enim
-                facilis voluptatum quaerat rerum magnam expedita, voluptatem accusamus corporis inventore delectus iure
-                labore
-                nam. At quos tempora cupiditate esse.</article>
-
-            <ul>
-                <li>address</li>
-                <li>article</li>
-                <li>aside</li>
-                <li>blockquote</li>
-                <li>details</li>
-                <li>dialog</li>
-                <li>div</li>
-                <li>dl</li>
-                <li>fieldset</li>
-                <li>figcaption</li>
-                <li>figure</li>
-                <li>footer</li>
-                <li>form</li>
-                <li>h1, h2, h3, h4, h5, h6</li>
-                <li>header</li>
-                <li>hr</li>
-                <li>li</li>
-                <li>main</li>
-                <li>nav</li>
-                <li>ol</li>
-                <li>p</li>
-                <li>pre</li>
-                <li>section</li>
-                <li>table</li>
-                <li>ul</li>
-            </ul>
-        </article>
+    <div class="container">
+        <h1 class="maintext">Pseudo Class</h1>
+        <input type="text" placeholder="Write Your Name..">
     </div>
 
-    <div class="inlineelementdiv">
-        <h1 class="" style="color: blue; font-size: 24px;">This is inline elements</h1>
-        <span class="" style="color: green; font-weight: bold;">This is inline element</span>
-        <p class="" style="color: red; font-style: italic;">This is another inline element</p>
-        <a href="#" class="" style="text-decoration: none; color: purple;">This is a link (inline element)</a>
-        <img src="./assets/image.jpg" alt="Example Image" class="inlineelement" style="border: 2px solid black; width: 100px;">
-        <strong class="" style="color: orange; font-size: 18px;">This is bold text (inline element)</strong>
-        <em class="" style="color: teal; text-decoration: underline;">This is italic text (inline element)</em>
-        <code class="" style="background-color: #f4f4f4; padding: 2px;">This is a code element (inline element)</code>
-        <abbr class="" title="Abbreviation" style="border-bottom: 1px dotted black; cursor: help;">This is an abbreviation (inline element)</abbr>
-        <cite class="" style="font-style: italic; color: darkblue;">This is a citation (inline element)</cite>
-        <q class="" style="quotes: '“' '”'; color: gray;">This is a short quotation (inline element)</q>
-        <small class="" style="font-size: 12px; color: darkgray;">This is small text (inline element)</small>
-        <sub class="" style="font-size: 10px; vertical-align: sub;">This is subscript text (inline element)</sub>
-        <sup class="" style="font-size: 10px; vertical-align: super;">This is superscript text (inline element)</sup>
-        <time class="" style="color: brown; font-weight: bold;">This is a time element (inline element)</time>
-    </div>
-
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt odio ducimus dignissimos eos recusandae,
+        facilis placeat ut impedit, veritatis nesciunt, odit vitae facere nostrum aliquid qui ipsum iste consequuntur
+        optio blanditiis dolorem illum quisquam eius unde? Amet pariatur placeat deleniti facilis sit hic dignissimos,
+        iure dolor! Deserunt quod nulla eius!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non earum natus tempora porro dolores praesentium
+        dignissimos iusto minima voluptate sed?</p>
 </body>
 
 </html>

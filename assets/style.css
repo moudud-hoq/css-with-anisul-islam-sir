@@ -1,24 +1,10 @@
-.blockelement {
-    background-color: green;
+body {
+    background-color: rgb(236, 236, 236);
+}
+
+.maintext{
+    font-size: 40px;
+    color: rgb(255, 99, 99);
     text-align: center;
-}
-
-.blockelementconvertintoinlineelement {
-    display: inline-block;
-    background-color: blue;
-    text-align: center;
-}
-
-.indent {
-    text-indent: 50px;
-    max-width: 800px;
-}
-
-.inlineelement{
-    background-color: yellow;
-    text-align: center;
-}
-
-.exofinlineelement{
-    background-color: red;
+    margin-top: 20px;
 }
