@@ -1,17 +1,7 @@
 body {
-    /* background-color: rgb(236, 236, 236); */
-    background-image: url(https://scontent.fdac179-1.fna.fbcdn.net/v/t1.6435-9/56664542_1146298978873203_5625746673394253824_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHqYtD4VZZ9JWyqUJp-yCRm-3XILAz1FOH7dcgsDPUU4WH0Xh5NCg4BqabgyMWk6QbH-6aYrt7U4wtk-TCfjVkB&_nc_ohc=V4-YNOmkfr0Q7kNvwFRMbrm&_nc_oc=AdnGc6hKYV-Dgk3Mfqr9fu7B5Dwqzmj-pk5wI-L6ek1UHMtzgeVbK8i7nID1-26_tr0&_nc_zt=23&_nc_ht=scontent.fdac179-1.fna&_nc_gid=nHA8S28qp5TvwJSGwHLxcQ&oh=00_AfG2gYBnsTUeAbAFZN7gzR9MgyS0Avs5m7oOWcw2LFsusg&oe=682B0487);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.3;
-    background-attachment: fixed;
+    background-image: linear-gradient(to right, #00c6ff, #122c03);
 }
 
-
-p{
-    color: white;
-}
 .maintext {
     font-size: 40px;
     color: rgb(255, 99, 99);
