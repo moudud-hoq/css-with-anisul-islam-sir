@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Calculator</title>
+    <title>Advanced Calculator</title>
     <style>
         :root {
             --primary: #3498db;
@@ -16,6 +16,7 @@
             --dark: #2c3e50;
             --light: #ecf0f1;
             --display: #1a1a2e;
+            --history-bg: #f8f9fa;
             --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -35,9 +36,15 @@
             padding: 20px;
         }
 
-        .calculator-container {
+        .calculator-wrapper {
+            display: flex;
+            gap: 20px;
+            max-width: 800px;
             width: 100%;
-            max-width: 340px;
+        }
+
+        .calculator-container {
+            width: 340px;
             background-color: white;
             border-radius: 20px;
             box-shadow: var(--shadow);
@@ -178,51 +185,133 @@
             color: #7f8c8d;
             font-size: 0.8rem;
         }
+
+        .history-panel {
+            flex: 1;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            max-height: 500px;
+        }
+
+        .history-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .history-list {
+            flex: 1;
+            overflow-y: auto;
+            list-style: none;
+        }
+
+        .history-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: var(--dark);
+        }
+
+        .history-expression {
+            font-weight: bold;
+        }
+
+        .history-result {
+            color: var(--success-dark);
+            float: right;
+        }
+
+        .clear-history {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: var(--light);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .clear-history:hover {
+            background-color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-wrapper {
+                flex-direction: column;
+            }
+            
+            .calculator-container {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="calculator-container">
-        <div class="display-container">
-            <div class="previous-operation" id="previous-operation"></div>
-            <input type="text" class="display" id="display" readonly>
+    <div class="calculator-wrapper">
+        <div class="calculator-container">
+            <div class="display-container">
+                <div class="previous-operation" id="previous-operation"></div>
+                <input type="text" class="display" id="display" readonly>
+            </div>
+            <div class="buttons">
+                <button class="btn clear" id="clear">AC</button>
+                <button class="btn function" id="backspace">⌫</button>
+                <button class="btn function" id="percentage">%</button>
+                <button class="btn operator" id="divide">÷</button>
+                
+                <button class="btn number" id="seven">7</button>
+                <button class="btn number" id="eight">8</button>
+                <button class="btn number" id="nine">9</button>
+                <button class="btn operator" id="multiply">×</button>
+                
+                <button class="btn number" id="four">4</button>
+                <button class="btn number" id="five">5</button>
+                <button class="btn number" id="six">6</button>
+                <button class="btn operator" id="subtract">−</button>
+                
+                <button class="btn number" id="one">1</button>
+                <button class="btn number" id="two">2</button>
+                <button class="btn number" id="three">3</button>
+                <button class="btn operator" id="add">+</button>
+                
+                <button class="btn number zero" id="zero">0</button>
+                <button class="btn number" id="decimal">.</button>
+                <button class="btn equal" id="equals">=</button>
+            </div>
+            <div class="brand">Advanced Calculator v2.0</div>
         </div>
-        <div class="buttons">
-            <button class="btn clear" id="clear">AC</button>
-            <button class="btn function" id="backspace">⌫</button>
-            <button class="btn function" id="percentage">%</button>
-            <button class="btn operator" id="divide">÷</button>
-            
-            <button class="btn number" id="seven">7</button>
-            <button class="btn number" id="eight">8</button>
-            <button class="btn number" id="nine">9</button>
-            <button class="btn operator" id="multiply">×</button>
-            
-            <button class="btn number" id="four">4</button>
-            <button class="btn number" id="five">5</button>
-            <button class="btn number" id="six">6</button>
-            <button class="btn operator" id="subtract">−</button>
-            
-            <button class="btn number" id="one">1</button>
-            <button class="btn number" id="two">2</button>
-            <button class="btn number" id="three">3</button>
-            <button class="btn operator" id="add">+</button>
-            
-            <button class="btn number zero" id="zero">0</button>
-            <button class="btn number" id="decimal">.</button>
-            <button class="btn equal" id="equals">=</button>
+
+        <div class="history-panel">
+            <div class="history-title">Calculation History</div>
+            <ul class="history-list" id="history-list">
+                <!-- History items will be added here -->
+            </ul>
+            <button class="clear-history" id="clear-history">Clear History</button>
         </div>
-        <div class="brand">Modern Calculator v1.0</div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const display = document.getElementById('display');
             const previousOperation = document.getElementById('previous-operation');
+            const historyList = document.getElementById('history-list');
+            const clearHistoryBtn = document.getElementById('clear-history');
+            
             let currentInput = '0';
             let previousInput = '';
             let operation = null;
             let resetScreen = false;
+            let calculationHistory = JSON.parse(localStorage.getItem('calculatorHistory')) || [];
+
+            // Initialize display and history
+            updateDisplay();
+            renderHistory();
 
             // Update display
             function updateDisplay() {
@@ -292,11 +381,50 @@
                         return;
                 }
                 
+                // Add to history
+                addToHistory(`${previousInput} ${currentInput}`, result);
+                
                 currentInput = result.toString();
                 operation = null;
                 previousInput = '';
                 resetScreen = true;
                 updateDisplay();
+            }
+
+            // Add calculation to history
+            function addToHistory(expression, result) {
+                calculationHistory.unshift({
+                    expression,
+                    result
+                });
+                
+                // Keep only last 50 items
+                if (calculationHistory.length > 50) {
+                    calculationHistory.pop();
+                }
+                
+                localStorage.setItem('calculatorHistory', JSON.stringify(calculationHistory));
+                renderHistory();
+            }
+
+            // Render history list
+            function renderHistory() {
+                historyList.innerHTML = '';
+                
+                if (calculationHistory.length === 0) {
+                    historyList.innerHTML = '<li style="color: #999; font-style: italic;">No history yet</li>';
+                    return;
+                }
+                
+                calculationHistory.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'history-item';
+                    li.innerHTML = `
+                        <span class="history-expression">${item.expression} =</span>
+                        <span class="history-result">${item.result}</span>
+                    `;
+                    historyList.appendChild(li);
+                });
             }
 
             // Clear calculator
@@ -323,18 +451,32 @@
                 updateDisplay();
             }
 
+            // Clear history
+            function clearHistory() {
+                calculationHistory = [];
+                localStorage.setItem('calculatorHistory', JSON.stringify(calculationHistory));
+                renderHistory();
+            }
+
             // Keyboard support
             document.addEventListener('keydown', (e) => {
-                if (e.key >= '0' && e.key <= '9') document.getElementById(e.key).click();
+                if (e.key >= '0' && e.key <= '9') {
+                    const buttonId = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'][parseInt(e.key)];
+                    document.getElementById(buttonId).click();
+                }
                 else if (e.key === '.') document.getElementById('decimal').click();
                 else if (e.key === '+') document.getElementById('add').click();
                 else if (e.key === '-') document.getElementById('subtract').click();
-                else if (e.key === '*') document.getElementById('multiply').click();
+                else if (e.key === '*' || e.key === 'x') document.getElementById('multiply').click();
                 else if (e.key === '/') document.getElementById('divide').click();
                 else if (e.key === '%') document.getElementById('percentage').click();
-                else if (e.key === 'Enter' || e.key === '=') document.getElementById('equals').click();
+                else if (e.key === 'Enter' || e.key === '=') {
+                    e.preventDefault();
+                    document.getElementById('equals').click();
+                }
                 else if (e.key === 'Escape') document.getElementById('clear').click();
                 else if (e.key === 'Backspace') document.getElementById('backspace').click();
+                else if (e.key === 'Delete') document.getElementById('clear').click();
             });
 
             // Button event listeners
@@ -359,9 +501,7 @@
             document.getElementById('equals').addEventListener('click', calculate);
             document.getElementById('clear').addEventListener('click', clearAll);
             document.getElementById('backspace').addEventListener('click', backspace);
-
-            // Initialize display
-            updateDisplay();
+            document.getElementById('clear-history').addEventListener('click', clearHistory);
         });
     </script>
 </body>
