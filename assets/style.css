@@ -1,7 +1,16 @@
 body {
-    background-color: #e7e6e6;
+    background-color: var(--primary-color);
 }
-/* 
+
+/* variable */
+
+:root {
+    --primary-color: #2c2c2c;
+    --secondary-color: #ffb8b8;
+    --text-color: #e7e6e6;
+    --font-family: 'Arial', sans-serif;
+    --font-size: 16px;
+}
 
 nav ul li {
     list-style-type: none;
@@ -9,7 +18,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #e7e7e7;
+    color: var(--text-color);
     font-size: 20px;
     font-weight: bold;
 }
@@ -29,19 +38,18 @@ nav ul {
 }
 
 ul {
-    background-color: #2c2c2c;
+    background-color: var(--primary-color);
     max-width: 600px;
     margin: 0 auto;
 }
 
 nav {
-    background-color: #2c2c2c;
+    background-color: var(--primary-color);
     border-radius: 5px;
-} */
-
+}
 
 /* Box Sizing and Opacity */
-/* .hero {
+.hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url(https://scontent.fdac179-1.fna.fbcdn.net/v/t1.6435-9/56664542_1146298978873203_5625746673394253824_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHqYtD4VZZ9JWyqUJp-yCRm-3XILAz1FOH7dcgsDPUU4WH0Xh5NCg4BqabgyMWk6QbH-6aYrt7U4wtk-TCfjVkB&_nc_ohc=V4-YNOmkfr0Q7kNvwFRMbrm&_nc_oc=AdnGc6hKYV-Dgk3Mfqr9fu7B5Dwqzmj-pk5wI-L6ek1UHMtzgeVbK8i7nID1-26_tr0&_nc_zt=23&_nc_ht=scontent.fdac179-1.fna&_nc_gid=nHA8S28qp5TvwJSGwHLxcQ&oh=00_AfG2gYBnsTUeAbAFZN7gzR9MgyS0Avs5m7oOWcw2LFsusg&oe=682B0487);
     background-size: cover;
@@ -51,7 +59,7 @@ nav {
 }
 
 .innerhero {
-    color: #e7e6e6;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,14 +79,15 @@ nav {
 
 .innerhero a {
     text-decoration: none;
-    color: #e7e7e7;
+    color: var(--text-color);
     font-size: 1.5rem;
     padding: 10px 20px;
-    background-color: #2c2c2c;
+    background-color: var(--primary-color);
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+
 .innerhero a:hover {
     background-color: #ffb8b8;
-    color: #2c2c2c;
-} */
+    color: var(--primary-color);
+}

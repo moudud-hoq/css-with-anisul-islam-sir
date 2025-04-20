@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 30 Tooltip</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+
+        /* Fade in tooltip */
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .overflow {
+        overflow-y: scroll;
+        height: 200px;
+    }
+</style>
+
+<body>
+    <div>
+        <h1>Tooltip Example</h1>
+        <p>Hover over the word <span class="tooltip">tooltip<span class="tooltiptext">This is a tooltip!</span></span>
+            to see the tooltip.</p>
+        <p>Hover over the word <span class="tooltip">CSS<span class="tooltiptext">Cascading Style Sheets</span></span>
+            to see the tooltip.</p>
+        <p class="overflow">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur sunt repudiandae est
+            molestiae similique doloremque placeat rerum accusamus nam, harum ut saepe sit reiciendis mollitia fugit
+            obcaecati quaerat sed quam, quae iusto! Odio vero, quod deserunt cum ea dolore praesentium alias. Id at
+            dolorem nulla iure totam harum aspernatur, dolores ullam accusamus necessitatibus tempora excepturi aliquid
+            cumque temporibus perferendis? Culpa porro amet ut, deserunt aliquam nemo. Porro amet eius assumenda dolore,
+            libero dignissimos dolorum unde tenetur ducimus exercitationem nulla nesciunt asperiores eaque ratione odio
+            dolores beatae odit similique incidunt et? Minus cupiditate ab tenetur? Consequatur ipsam nihil, aspernatur,
+            non optio in modi sint quam minima facere sequi ea adipisci consequuntur, voluptatum alias ratione nemo!
+            Incidunt doloribus dolor facilis, velit praesentium aliquid amet soluta minima nemo dicta eos voluptatem
+            aliquam recusandae nisi architecto dolore exercitationem blanditiis asperiores ullam sapiente illum
+            voluptatum quod dignissimos. Cumque aliquam non quos distinctio beatae itaque, voluptatum quisquam corrupti
+            provident in minima commodi natus, voluptatibus aut illo saepe, consequuntur qui recusandae! Eum illum
+            quibusdam aliquid architecto debitis omnis, aperiam cum reiciendis! Ipsa sint obcaecati beatae ad velit ut
+            dolorem, alias quibusdam culpa voluptatum, impedit ipsum, quas necessitatibus nihil possimus tenetur
+            aspernatur distinctio deleniti laborum libero inventore veritatis qui provident! Expedita culpa, at tenetur
+            rerum velit consectetur est vitae praesentium dignissimos itaque quos, dolor quaerat. Maxime porro eaque
+            tempora accusamus velit officiis. Aperiam adipisci architecto error molestias similique rerum explicabo
+            distinctio cum ut provident. Nisi assumenda quibusdam quaerat incidunt quam eos adipisci fuga qui minima
+            rerum. Tempore molestiae porro, repellat distinctio nulla perferendis omnis sed temporibus suscipit
+            quibusdam minus minima cum laborum pariatur maxime at perspiciatis vel. Commodi nam in, eligendi quibusdam
+            odit quis sunt deserunt possimus blanditiis quos, atque vitae nobis facere adipisci facilis voluptate at
+            tenetur repellendus provident. Ducimus sit excepturi dolorum. Quo aperiam iusto unde.</p>
+    </div>
+
+</body>
+
+</html>
