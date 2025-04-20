@@ -55,7 +55,7 @@ nav {
     background-size: cover;
     height: 100vh;
     border-radius: 10px;
-    margin-top: 1rem;
+    margin: 4rem 0;
 }
 
 .innerhero {
@@ -90,4 +90,49 @@ nav {
 .innerhero a:hover {
     background-color: #ffb8b8;
     color: var(--primary-color);
+}
+
+/* Cards */
+.cards {
+    background-color: var(--text-color);
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(223, 0, 0, 0.2);
+}
+
+.cards>h1 {
+    text-align: center;
+}
+
+.cardbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+
+    flex: 1 1 100px; /* Basis + grow + shrink */
+
+    background-color: var(--text-color);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    flex-grow: 1;
+}
+
+img{
+    max-width: 200px;
+    height: 100%;
+    border-radius: 10px;
 }
