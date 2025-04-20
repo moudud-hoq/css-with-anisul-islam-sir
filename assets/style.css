@@ -39,7 +39,6 @@ nav ul {
 
 ul {
     background-color: var(--primary-color);
-    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -47,6 +46,45 @@ nav {
     background-color: var(--primary-color);
     border-radius: 5px;
 }
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    /* Add this to contain the dropdown properly */
+}
+
+/* Hide the dropdown menu by default */
+.dropdown-menu {
+    position: absolute;
+    width: 400px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+    list-style: none;
+    background-color: white;
+    /* Add a background so items are visible */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Optional: adds a subtle shadow */
+    z-index: 100;
+    /* Ensures the dropdown appears above other content */
+}
+
+/* Show the dropdown menu on hover of EITHER dropdown OR dropdown-menu */
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+}
+
+/* Style for dropdown menu items */
+.dropdown-menu li a {
+    font-size: 15px;
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+}
+
 
 /* Box Sizing and Opacity */
 .hero {
@@ -115,7 +153,8 @@ nav {
 
 .card {
 
-    flex: 1 1 100px; /* Basis + grow + shrink */
+    flex: 1 1 100px;
+    /* Basis + grow + shrink */
 
     background-color: var(--text-color);
     border-radius: 10px;
@@ -131,8 +170,102 @@ nav {
     flex-grow: 1;
 }
 
-img{
+img {
     max-width: 200px;
     height: 100%;
     border-radius: 10px;
+}
+
+/* Transformation */
+.tranformation {
+    background-color: var(--text-color);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1240px;
+}
+
+.articles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.article {
+    max-width: 300px;
+    background: #000;
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.article1:hover {
+    transform: scale(1.2);
+    transition: transform 0.8s ease;
+    transition: transform 0.8s out;
+}
+
+.article2:hover {
+    transform: rotate(20deg);
+    transition: transform 0.8s ease;
+}
+
+.article3:hover {
+    transform: rotate(4deg);
+    transform-origin: 180% 10%;
+    transition: transform 1s ease-in-out;
+}
+
+.article4:hover {
+    transform: rotateY(20deg) rotateX(50deg);
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+    
+    background-color: red;
+    
+}
+
+.article9:hover{
+    animation: spin 5s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) scale(1);
+        background-color: #1e90ff; /* Dodger Blue */
+        color: #ffffff; /* White */
+        border-radius: 0;
+        box-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+    }
+    25% {
+        transform: rotate(90deg) scale(1.1);
+        background-color: #ff4500; /* Orange Red */
+        color: #000000; /* Black */
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+        background-color: #32cd32; /* Lime Green */
+        color: #ffffff; /* White */
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(50, 205, 50, 0.5);
+    }
+    75% {
+        background-color: #ff69b4; /* Hot Pink */
+        color: #000000; /* Black */
+        border-radius: 30px;
+        box-shadow: 0 0 25px rgba(255, 105, 180, 0.5);
+        transform: scale(.8) rotate(190deg);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        background-color: #1e90ff; /* Dodger Blue */
+        color: #ffffff; /* White */
+        border-radius: 0;
+        box-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+    }
 }
