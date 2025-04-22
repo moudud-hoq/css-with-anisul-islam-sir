@@ -176,6 +176,89 @@ img {
     border-radius: 10px;
 }
 
+/* single card transformation */
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    color: red;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.card1:hover {
+    transform: rotate(20deg);
+    transition: transform 0.3s ease;
+}
+
+.card2:hover {
+    transform: rotate(4deg);
+    transform-origin: 180% 10%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card3:hover {
+    transform: rotateY(20deg) rotateX(50deg);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card4:hover {
+    animation: spin 5s linear infinite;
+    transform-origin: center;
+}
+
+.card5:hover {
+    animation-name: slidin;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+}
+
+
+@keyframes slidin {
+    0% {
+        transform: translate (100%);
+        opacity: 50%;
+    }
+
+    50% {
+        transform: translate (0%);
+        opacity: 60%;
+    }
+
+    75% {
+        transform: translate (0%);
+        opacity: 70%;
+    }
+
+    100% {
+        transform: translate (10%);
+        opacity: 100%;
+    }
+}
+
+.card6:hover {
+    animation: bounce 1s ease-in-out 0.5s 5 alternate forwards;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
 /* Transformation */
 .tranformation {
     background-color: var(--text-color);
@@ -222,12 +305,12 @@ img {
     transform: rotateY(20deg) rotateX(50deg);
     transform-style: preserve-3d;
     transition: transform 1s ease-in-out;
-    
+
     background-color: red;
-    
+
 }
 
-.article9:hover{
+.article9:hover {
     animation: spin 5s linear infinite;
     transform-origin: center;
 }
@@ -235,36 +318,50 @@ img {
 @keyframes spin {
     0% {
         transform: rotate(0deg) scale(1);
-        background-color: #1e90ff; /* Dodger Blue */
-        color: #ffffff; /* White */
+        background-color: #1e90ff;
+        /* Dodger Blue */
+        color: #ffffff;
+        /* White */
         border-radius: 0;
         box-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
     }
+
     25% {
         transform: rotate(90deg) scale(1.1);
-        background-color: #ff4500; /* Orange Red */
-        color: #000000; /* Black */
+        background-color: #ff4500;
+        /* Orange Red */
+        color: #000000;
+        /* Black */
         border-radius: 10px;
         box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
     }
+
     50% {
         transform: rotate(180deg) scale(1.2);
-        background-color: #32cd32; /* Lime Green */
-        color: #ffffff; /* White */
+        background-color: #32cd32;
+        /* Lime Green */
+        color: #ffffff;
+        /* White */
         border-radius: 20px;
         box-shadow: 0 0 20px rgba(50, 205, 50, 0.5);
     }
+
     75% {
-        background-color: #ff69b4; /* Hot Pink */
-        color: #000000; /* Black */
+        background-color: #ff69b4;
+        /* Hot Pink */
+        color: #000000;
+        /* Black */
         border-radius: 30px;
         box-shadow: 0 0 25px rgba(255, 105, 180, 0.5);
         transform: scale(.8) rotate(190deg);
     }
+
     100% {
         transform: rotate(360deg) scale(1);
-        background-color: #1e90ff; /* Dodger Blue */
-        color: #ffffff; /* White */
+        background-color: #1e90ff;
+        /* Dodger Blue */
+        color: #ffffff;
+        /* White */
         border-radius: 0;
         box-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
     }
